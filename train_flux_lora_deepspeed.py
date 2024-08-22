@@ -15,9 +15,6 @@ from accelerate import Accelerator
 from accelerate.logging import get_logger
 from accelerate.utils import ProjectConfiguration
 from diffusers.optimization import get_scheduler
-from diffusers.utils import (
-    is_wandb_available,
-)
 from einops import rearrange
 from omegaconf import OmegaConf
 from tqdm.auto import tqdm
@@ -27,8 +24,6 @@ from x_flux.modules.layers import DoubleStreamBlockLoraProcessor
 from x_flux.sampling import prepare
 from x_flux.util import load_ae, load_clip, load_flow_model2, load_t5
 
-if is_wandb_available():
-    pass
 logger = get_logger(__name__, log_level="INFO")
 
 
