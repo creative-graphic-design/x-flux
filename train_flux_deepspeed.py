@@ -2,54 +2,27 @@ import argparse
 import logging
 import math
 import os
-import random
 import shutil
-from contextlib import nullcontext
 from copy import deepcopy
-from pathlib import Path
 
-import accelerate
 import datasets
 import diffusers
-import numpy as np
 import torch
 import torch.nn.functional as F
 import torch.utils.checkpoint
 import transformers
 from accelerate import Accelerator
 from accelerate.logging import get_logger
-from accelerate.state import AcceleratorState
-from accelerate.utils import ProjectConfiguration, set_seed
-from diffusers import AutoencoderKL, DDPMScheduler, StableDiffusionPipeline
+from accelerate.utils import ProjectConfiguration
 from diffusers.optimization import get_scheduler
-from diffusers.training_utils import (
-    EMAModel,
-    compute_dream_and_update_latents,
-    compute_snr,
-)
-from diffusers.utils import (
-    check_min_version,
-    deprecate,
-    is_wandb_available,
-    make_image_grid,
-)
-from diffusers.utils.hub_utils import load_or_create_model_card, populate_model_card
-from diffusers.utils.import_utils import is_xformers_available
-from diffusers.utils.torch_utils import is_compiled_module
 from einops import rearrange
-from huggingface_hub import create_repo, upload_folder
 from omegaconf import OmegaConf
-from packaging import version
 from tqdm.auto import tqdm
-from transformers import CLIPTextModel, CLIPTokenizer
-from transformers.utils import ContextManagers
 
 from image_datasets.dataset import loader
-from x_flux.sampling import denoise, get_noise, get_schedule, prepare, unpack
-from x_flux.util import configs, load_ae, load_clip, load_flow_model2, load_t5
+from x_flux.sampling import prepare
+from x_flux.util import load_ae, load_clip, load_flow_model2, load_t5
 
-if is_wandb_available():
-    import wandb
 logger = get_logger(__name__, log_level="INFO")
 
 
