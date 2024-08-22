@@ -45,9 +45,9 @@ from transformers import CLIPTextModel, CLIPTokenizer
 from transformers.utils import ContextManagers
 
 from image_datasets.dataset import loader
-from src.x_flux.modules.layers import DoubleStreamBlockLoraProcessor
-from src.x_flux.sampling import denoise, get_noise, get_schedule, prepare, unpack
-from src.x_flux.util import configs, load_ae, load_clip, load_flow_model2, load_t5
+from x_flux.modules.layers import DoubleStreamBlockLoraProcessor
+from x_flux.sampling import denoise, get_noise, get_schedule, prepare, unpack
+from x_flux.util import configs, load_ae, load_clip, load_flow_model2, load_t5
 
 if is_wandb_available():
     import wandb

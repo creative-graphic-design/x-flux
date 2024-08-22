@@ -3,8 +3,8 @@ import torch
 from einops import rearrange
 from PIL import Image
 
-from src.x_flux.modules.layers import DoubleStreamBlockLoraProcessor
-from src.x_flux.sampling import (
+from x_flux.modules.layers import DoubleStreamBlockLoraProcessor
+from x_flux.sampling import (
     denoise,
     denoise_controlnet,
     get_noise,
@@ -12,7 +12,7 @@ from src.x_flux.sampling import (
     prepare,
     unpack,
 )
-from src.x_flux.util import (
+from x_flux.util import (
     Annotator,
     get_lora_rank,
     load_ae,

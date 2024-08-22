@@ -11,7 +11,7 @@ from cog import BasePredictor, Input, Path
 from PIL import Image
 
 from image_datasets.canny_dataset import c_crop, canny_processor
-from src.x_flux.util import (
+from x_flux.util import (
     load_ae,
     load_clip,
     load_controlnet,

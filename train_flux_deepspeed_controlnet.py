@@ -45,8 +45,8 @@ from transformers import CLIPTextModel, CLIPTokenizer
 from transformers.utils import ContextManagers
 
 from image_datasets.canny_dataset import loader
-from src.x_flux.sampling import denoise, get_noise, get_schedule, prepare, unpack
-from src.x_flux.util import (
+from x_flux.sampling import denoise, get_noise, get_schedule, prepare, unpack
+from x_flux.util import (
     configs,
     load_ae,
     load_clip,

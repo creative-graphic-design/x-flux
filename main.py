@@ -3,7 +3,7 @@ import os
 
 from PIL import Image
 
-from src.x_flux.xflux_pipeline import XFluxPipeline
+from x_flux.xflux_pipeline import XFluxPipeline
 
 
 def create_argparser():
